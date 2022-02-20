@@ -31,7 +31,7 @@ fn main() {
     let pending: Pending = Pending::new(String::from("laundry"));
     println!("{}", pending.super_struct.title);
     println!("{}", pending.super_struct.status);
-
+    // https://www.youtube.com/watch?v=w1Hf1EcNwBs&list=PLeLcvrwLe184QKWgv7Mm49umcLzlwn9xb&index=2&ab_channel=CodeinAction - 21
     // let args: Vec<String> = env::args().collect();
     // let path: &str = &args[0];
     // if path .contains("/debug/") {
