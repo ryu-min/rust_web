@@ -6,7 +6,7 @@ pub trait Get {
         match item {
             Some(result) => {
                 println!("\n\nItem: {}",    title);
-                println!("\n\nStatus: {}",  result);
+                println!("Status: {}\n\n",  result);
             },
             None => println!("item: {} was not found", title)
         }

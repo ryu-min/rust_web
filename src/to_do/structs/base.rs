@@ -4,9 +4,9 @@ pub struct Base {
 }
 
 impl Base {
-    pub fn new(input_title : String, input_status : String) -> Base {
+    pub fn new(input_title : &str, input_status : &str) -> Base {
         Base {
-            title : input_title, status : input_status
+            title : input_title.into(), status : input_status.into()
         }
     }
 }

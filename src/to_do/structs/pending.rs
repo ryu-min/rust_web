@@ -7,9 +7,8 @@ pub struct Pending {
 }
 
 impl Pending {
-    pub fn new(input_title : String) -> Pending {
-        let input_status : String = String::from("Pending");
-        let base : Base = Base::new(input_title, input_status);
+    pub fn new(input_title : &str) -> Pending {
+        let base : Base = Base::new(input_title, "pending");
         Pending {super_struct : base}
     }
 }
