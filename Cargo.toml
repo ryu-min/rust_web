@@ -5,3 +5,4 @@ edition = "2018"
 
 [dependencies]
 rand = "0.7.3"
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }

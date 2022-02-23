@@ -1,7 +1,10 @@
 use rand::prelude::*;
 use std::env;
+use serde_json::{json, Map, value::Value};
+use state::{write_to_file, read_file};
 
 mod to_do;
+mod state;
 
 use to_do::ItemType;
 use to_do::to_do_factory;
@@ -30,8 +33,19 @@ fn main() {
                       String::from("washing"));
 
     match to_do_item.unwrap() {
-        ItemType::Pending(item) => item.create(&item.super_struct.title),
+        ItemType::Pending(item) =>
+            item.create(&item.super_struct.title),
         ItemType::Done(item) =>
             println!("It's a done item with the title {}", item.super_struct.title)
     }
+
+    let args : Vec<String> = env::args().collect();
+    let status: &String = &args[1];
+    let title: &String = &args[2];
+
+    let mut state: Map<String, Value> = read_file("/home/z1p1t/workspace/rust_web/state.json");
+    println!("{:?}", state);
+
+    state.insert(title.to_string(), json!(status));
+    write_to_file("/home/z1p1t/workspace/rust_web/state.json", &mut state);
 }
